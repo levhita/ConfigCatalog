@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title><?=$Config->system_name?> - <?=$page_title?></title>
+  </head>
+  <body>
+    <h1><a href="<?=$Config->system_home?>"><?=$Config->systfem_name?></a></h1>
+    <h2><?=$page_title?></h2>
+    
+    <?= $_template_content_ ?>
+    <div class="logger">
+    	<?=Logger::getWebLog();?>
+    </div>
+  </body>
+</html>
