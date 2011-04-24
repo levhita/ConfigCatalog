@@ -2,15 +2,12 @@
 /**
  * Include files based on the Instance's ClassName being created
  *
- * Gets {@link Controller} from application/controllers/
- * Gets {@link View}s from application/views/
- * Gets {@link Model}s from application/models/
- * Every other class it gets it from application/core/
+ * It gets them from application/core/
  *
  * For classes that doesn't form part of the core, you must include the file
  * by hand.
  *
- * @package Garson
+ * @package ConfigCatalog
  */
 class Autoloader {
  

@@ -1,7 +1,7 @@
 <?php
 /**
  * Holds the {@link Config} Singleton
- * @package Garson
+ * @package ConfigCatalog
  * @author Argel Arias <levhita@gmail.com>
  * @copyright Copyright (c) 2010, Argel Arias <levhita@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License

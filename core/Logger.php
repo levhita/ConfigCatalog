@@ -3,7 +3,7 @@ define('LOGGER_ERROR', 'error');
 define('LOGGER_WARNING', 'warning');
 define('LOGGER_NOTICE', 'notice');
 /**
- * @package ThaFrame
+ * @package ConfigCatalog
  * @author Argel Arias <levhita@gmail.com>
  * @todo Add File and Line handling
  */

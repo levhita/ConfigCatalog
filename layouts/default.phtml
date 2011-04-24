@@ -4,12 +4,14 @@
     <title><?=$Config->system_name?> - <?=$page_title?></title>
   </head>
   <body>
-    <h1><a href="<?=$Config->system_home?>"><?=$Config->systfem_name?></a></h1>
+    <h1><a href="<?=$Config->system_home?>"><?=$Config->system_name?></a></h1>
     <h2><?=$page_title?></h2>
     
     <?= $_template_content_ ?>
     <div class="logger">
-    	<?=Logger::getWebLog();?>
+      <?foreach(Logger::getWebLog() AS $log):?>
+      <pre><? print_r($log)?></pre>
+      <? endforeach;?>
     </div>
   </body>
 </html>

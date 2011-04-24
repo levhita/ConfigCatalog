@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Garson
+ * @package ConfigCatalog
  * @author Argel Arias <levhita@gmail.com>
  */
 
