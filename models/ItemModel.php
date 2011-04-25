@@ -13,20 +13,20 @@ class ItemModel {
   public $name = '';
   public $description = '';
   
-  public function __construct($file_name) {
-    $this->_file_name   = $file_name;
+  public function __construct($id) {
+    $this->_file_name   = "items/$id.ini";
     
-    if ( !file_exists($file_name) ) {
-      Logger::log("Config file doesn't exists", $file_name, LOGGER_ERROR);
+    if ( !file_exists($this->_file_name) ) {
+      Logger::log("Config file doesn't exists", $this->_file_name, LOGGER_ERROR);
       return false;
     }
     
-    if( !$this->_config = @ parse_ini_file($file_name, true) ) {
-      Logger::log("Couldn't load config file", $file_name, LOGGER_ERROR);
+    if( !$this->_config = @ parse_ini_file($this->_file_name, true) ) {
+      Logger::log("Couldn't load config file", $this->_file_name, LOGGER_ERROR);
       return false;
     }
     
-    $this->id           = substr(basename($file_name), 0, -4);
+    $this->id           = $id;
     $this->name         = $this->_config['main']['name'];
     $this->description  = $this->_config['main']['description'];
        
@@ -46,14 +46,21 @@ class ItemModel {
   public static function getAllItems() {
     if( !count(self::$__Items) ) {
       $items = Utils::preg_ls('items/', false, "/.*\.ini/i");
-      foreach($items AS $item) {
-        $id = substr(basename($item), 0, -4);
-        $Item = new ItemModel($item);
+      foreach($items AS $file_name) {
+        $id = substr(basename($file_name), 0, -4);
+        $Item = new ItemModel($id);
         self::$__Items[$id] = $Item;  
       }
     }
     return self::$__Items;   
   }
   
+  public function saveContent($content) {
+    return file_put_contents($this->_file_name, $content);
+  }
+  
+  public function getContent(){
+    return file_get_contents($this->_file_name);
+  }
   
 }

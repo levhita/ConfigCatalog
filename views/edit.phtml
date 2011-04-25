@@ -1,0 +1,11 @@
+<?php if($saved): ?>
+	<p class="message">Saved</p>
+<?php endif; ?>
+
+<h3>items/<?=$Item->id?>.ini</h3>
+<form action="save.php" method="post">
+  <input type="hidden" name="id" value="<?=$Item->id?>"/>
+  <label for="content">Content:</label><br/>
+  <textarea rows="25" cols="100" name="content"><?=htmlspecialchars($Item->getContent())?></textarea><br/>
+  <input type="submit" value="Save"/>
+</form>

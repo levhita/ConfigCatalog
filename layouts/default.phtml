@@ -20,10 +20,14 @@
     </div>
   	
   	<div class="footer">
-        &copy;<?=$Config->system_name?>:
-        <?=$Config->system_slogan?>.<br/>
-        Made with <a href="https://github.com/levhita/ConfigCatalog/">ConfigCatalog</a>.
-    </div>
+      &copy;<?=$Config->system_name . ": " . $Config->system_slogan?>.<br/>
+      Made with <a href="https://github.com/levhita/ConfigCatalog/">ConfigCatalog</a>.<br/>
+	  <?php if( !isset($_SESSION['logged_in']) ){?>
+		<a href="login.php">Login</a>
+	  <?php } else { ?>
+	  	<a href="logout.php">Logout</a> || <a href="admin.php">Admin</a>
+	  <?php } ?>
+	</div>
     
     <div class="errors">
         <?foreach(Logger::getWebLog() AS $log):?>

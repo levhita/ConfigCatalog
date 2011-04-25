@@ -69,7 +69,7 @@ body {
 	text-decoration:none;
 	}
 
-.item a:hover img{
+.item a:hover img {
 	border: 3px solid #66ACDE;
 	margin: 7px 32px;
 }
@@ -115,3 +115,11 @@ body {
 .clear {
 	clear:both;
 }
+.message {
+	padding: 10px;
+	background: #FFFAB7;
+	text-align: center;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	}

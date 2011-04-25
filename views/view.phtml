@@ -14,5 +14,9 @@
 		<li><?="{$extra['name']}: {$extra['description']} ({$extra['price']})"?></li>
 		<?php endforeach;?>
 	</ul>
-	<div class="clear"></div>
+	<div class="clear">
+	  <?php if( isset($_SESSION['logged_in']) ):?>
+		<a href="edit.php?id=<?=$Item->id?>">Edit</a>
+	  <?php endif; ?>	
+	</div>
 </div>

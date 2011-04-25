@@ -1,4 +1,5 @@
 <?php
+session_start();
 define( 'TO_ROOT', '.');
 
 include "core/Autoloader.php";

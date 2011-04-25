@@ -1,3 +1,8 @@
 RewriteEngine on
 RewriteBase /catalog
-RewriteRule ^v-(.+) view.php?item=$1 [NC]
+RewriteRule ^v-(.+) view.php?id=$1 [NC]
+
+<Files ~ "\.(txt)$">
+  order allow,deny
+  deny from all
+</Files>
