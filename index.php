@@ -1,7 +1,12 @@
 <?php 
 include "core/main.inc.php";
 
-$View= new View('test');
-$View->assign('variable', $Config->test);
-$View->setPageTitle('Tests');
+$View= new View('all');
+$View->setPageTitle('Items');
+
+$Items = ItemModel::getAllItems();
+$View->assign('Items', $Items);
+
+$Item = new ItemModel('items/gourmet.ini');
+
 $View->display();

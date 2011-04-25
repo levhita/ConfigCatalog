@@ -15,9 +15,10 @@ class Autoloader {
   {
     $class_name = ucwords($class_name);
 		
-    /** Specific classes are inside this directories, either in app space, or in framework space. **/
+    /** Specific classes are inside this directories **/
     $named_directories = array
     (
+        'Model' => 'models/',
     );
 
     $is_core = true;
@@ -35,15 +36,9 @@ class Autoloader {
       $path = 'core/' . $class_name;
     }
       
-    /** Try to include it from the application first **/
+    /** Include them **/
     if ( file_exists(TO_ROOT . '/' . $path . '.php') ) {
       require_once TO_ROOT . '/' . $path . '.php';
-      return true;
-    }
-    
-    /** If that fails,  includes it from ThaFrame **/
-    if ( file_exists(THAFRAME . '/' . $path . '.php') ) {
-      require_once THAFRAME . '/' . $path . '.php';
       return true;
     }
     return false;

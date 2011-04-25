@@ -3,3 +3,7 @@ core/system_config.ini
 .project
 .settings/
 log.txt
+items/*.ini
+items/*.jpg
+items/thumbs/*.jpg
+items/web/*.jpg
