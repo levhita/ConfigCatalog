@@ -7,3 +7,4 @@ items/*.ini
 items/*.jpg
 items/thumbs/*.jpg
 items/web/*.jpg
+.htaccess

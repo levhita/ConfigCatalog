@@ -15,7 +15,17 @@ class ItemModel {
   
   public function __construct($file_name) {
     $this->_file_name   = $file_name;
-    $this->_config      = parse_ini_file($file_name, true);
+    
+    if ( !file_exists($file_name) ) {
+      Logger::log("Config file doesn't exists", $file_name, LOGGER_ERROR);
+      return false;
+    }
+    
+    if( !$this->_config = @ parse_ini_file($file_name, true) ) {
+      Logger::log("Couldn't load config file", $file_name, LOGGER_ERROR);
+      return false;
+    }
+    
     $this->id           = substr(basename($file_name), 0, -4);
     $this->name         = $this->_config['main']['name'];
     $this->description  = $this->_config['main']['description'];
