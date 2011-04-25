@@ -44,9 +44,13 @@ class View {
    * @throws InvalidArgumentException
    * @return null
    */
-  public function setTemplate($templateName)
+  public function setTemplate($templateName, $absolute_path = false)
   {
-    $template = TO_ROOT . "/views/$templateName.phtml";
+    if ( !$absolute_path ) {
+      $template = TO_ROOT . "/views/$templateName.phtml";
+    } else {
+      $template = $templateName;
+    }
     if ( !file_exists($template) ) {
       throw new InvalidArgumentException("Couldn't find template '$template'");
     }
