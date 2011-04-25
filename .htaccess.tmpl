@@ -1,6 +1,11 @@
 RewriteEngine on
-RewriteBase /catalog
+
+#Use RewriteBase in case you are using mod_alias
+#example, for "http://localhost/catalog" use "/catalog"
+#RewriteBase /catalog
+
 RewriteRule ^v-(.+) view.php?id=$1 [NC]
+RewriteRule ^p-(.+) page.php?page=$1 [NC]
 
 <Files ~ "\.(txt)$">
   order allow,deny
