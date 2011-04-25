@@ -14,8 +14,12 @@
       <h2><?=$Config->system_slogan?></h2>
       <div class="social">
         <ul>
-      	  <li class="twitter"><a href="http://twitter.com/<?=$Config->social_twitter?>" title="Twitter">Twitter</a></li>
-  		  <li class="facebook"><a href="http://facebook.com/<?=$Config->social_facebook?>" title="Facebook">Facebook</a></li>
+      	  <?php if(isset($Config->social_twitter)):?>
+      	  	<li class="twitter"><a href="http://twitter.com/<?=$Config->social_twitter?>" title="Twitter">Twitter</a></li>
+      	  <?php endif; ?>
+      	  <?php if(isset($Config->social_facebook)):?>	
+  		  	<li class="facebook"><a href="http://facebook.com/<?=$Config->social_facebook?>" title="Facebook">Facebook</a></li>
+  		  <?php endif; ?>
         </ul>
       </div>
     </div>
