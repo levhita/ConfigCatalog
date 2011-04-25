@@ -12,8 +12,29 @@
   	<div class="header">
   	  <h1><a href="<?=$Config->system_home?>"><?=$Config->system_name?></a></h1>
       <h2><?=$Config->system_slogan?></h2>
+      <div class="social">
+        <ul>
+      	  <li class="twitter"><a href="http://twitter.com/<?=$Config->social_twitter?>" title="Twitter">Twitter</a></li>
+  		  <li class="facebook"><a href="http://facebook.com/<?=$Config->social_facebook?>" title="Facebook">Facebook</a></li>
+        </ul>
+      </div>
     </div>
     
+    
+       
+    <?php if(count($Config->top_menu_name) ): ?>
+    <div class="top_menu">
+    	<ul>
+    	<?php
+    	  $top_menu_name = $Config->top_menu_name;
+    	  foreach($Config->top_menu_url AS $_top_menu_url){ 
+    	    list($key,$_top_menu_name) = each($top_menu_name);
+    	    ?><li><a href="<?=$_top_menu_url?>"><?=$_top_menu_name?></a></li><?php
+    	  }
+    	?>	
+    	</ul>
+    </div>
+    <?php endif; ?>
     <div class="content">
       <?= $_template_content_ ?>
     </div>
