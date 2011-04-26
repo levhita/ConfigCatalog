@@ -1,11 +1,11 @@
-<?php if($saved): ?>
-	<p class="message">Saved</p>
+<?php if($message): ?>
+	<p class="message"><?=$message?></p>
 <?php endif; ?>
 
-<h3>items/<?=$Item->id?>.ini</h3>
+<h3>items/<?=$id?>.ini</h3>
 <form action="save.php" method="post">
-  <input type="hidden" name="id" value="<?=$Item->id?>"/>
+  <input type="hidden" name="id" value="<?=$id?>"/>
   <label for="content">Content:</label><br/>
-  <textarea rows="25" cols="100" name="content"><?=htmlspecialchars($Item->getContent())?></textarea><br/>
+  <textarea rows="25" cols="100" name="content"><?=htmlspecialchars($file_content)?></textarea><br/>
   <input type="submit" value="Save"/>
 </form>

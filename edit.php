@@ -6,7 +6,7 @@ if( !isset($_SESSION['logged_in']) ) {
   die();
 }
 
-$saved = (!isset($_GET['saved']))?false:$_GET['saved'];
+$message = (!isset($_GET['message']))?false:$_GET['message'];
 
 if ( !isset($_GET['id']) || empty($_GET['id']) ) {
   header("location:$Config->system_home");
@@ -15,7 +15,10 @@ $id = $_GET['id'];
 
 $View = new View('edit');
 
-$Item = new ItemModel($id);
-$View->assign('Item', $Item);
-$View->assign('saved', $saved);
+$file_content = file_get_contents("items/$id.ini");
+
+$View->assign('file_content', $file_content);
+$View->assign('id', $id);
+$View->assign('message', $message);
+
 $View->display();

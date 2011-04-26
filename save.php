@@ -16,7 +16,17 @@ if ( !isset($_POST['content']) || empty($_POST['content']) ) {
 }
 $content = $_POST['content'];
 
-$Item = new ItemModel($id);
-$Item->saveContent($content);
+$message="Saved";
 
-header("location:edit.php?id={$Item->id}&saved=true");
+$file_name="items/$id.ini";
+
+if( file_put_contents($file_name, $content) === false ) {
+  $message = "Couldn't save file";  
+}
+
+if ( parse_ini_file($file_name, true) === false ) {
+  $error = error_get_last();
+  $message = "Wrong Syntax: {$error['message']}";
+}
+
+header("location:edit.php?id={$id}&message=" . urlencode($message));

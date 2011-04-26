@@ -18,12 +18,12 @@ class ItemModel {
     
     if ( !file_exists($this->_file_name) ) {
       Logger::log("Config file doesn't exists", $this->_file_name, LOGGER_ERROR);
-      return false;
+      throw new RuntimeException("Config file doesn't exists: ". $this->_file_name);
     }
     
     if( !$this->_config = @ parse_ini_file($this->_file_name, true) ) {
       Logger::log("Couldn't load config file", $this->_file_name, LOGGER_ERROR);
-      return false;
+      throw new RuntimeException("Couldn't load config file: " . $this->_file_name);
     }
     
     $this->id           = $id;
@@ -48,15 +48,22 @@ class ItemModel {
       $items = Utils::preg_ls('items/', false, "/.*\.ini/i");
       foreach($items AS $file_name) {
         $id = substr(basename($file_name), 0, -4);
-        $Item = new ItemModel($id);
-        self::$__Items[$id] = $Item;  
+        try {
+         $Item = new ItemModel($id);
+         self::$__Items[$id] = $Item; 
+        } catch(Exception $e){
+          
+        }
+        
+          
       }
     }
     return self::$__Items;   
   }
   
-  public function saveContent($content) {
-    return file_put_contents($this->_file_name, $content);
+  public static function saveContent($id, $content) {
+    $file_name="items/$id.ini";
+    return file_put_contents($file_name, $content);
   }
   
   public function getContent(){
