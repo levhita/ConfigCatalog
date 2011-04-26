@@ -7,11 +7,13 @@
     <link href="themes/<?=$Config->system_theme?>/style.css" rel="stylesheet" type="text/css" />
     <?php include TO_ROOT . "/themes/$Config->system_theme/headers.phtml"?>
   </head>
-  
   <body>
   	<div class="header">
   	  <h1><a href="<?=$Config->system_home?>"><?=$Config->system_name?></a></h1>
-      <h2><?=$Config->system_slogan?></h2>
+      <?php if (isset($Config->system_slogan)):?>
+      	<h2><?=$Config->system_slogan?></h2>
+      <?php endif; ?>
+      <?php if ($Config->social_display):?>
       <div class="social">
         <ul>
       	  <?php if(isset($Config->social_twitter)):?>
@@ -22,10 +24,8 @@
   		  <?php endif; ?>
         </ul>
       </div>
+      <?php endif;?>
     </div>
-    
-    
-       
     <?php if(count($Config->top_menu_name) ): ?>
     <div class="top_menu">
     	<ul>
@@ -42,9 +42,11 @@
     <div class="content">
       <?= $_template_content_ ?>
     </div>
-  	
   	<div class="footer">
-      &copy;<?=$Config->system_name . ": " . $Config->system_slogan?>.<br/>
+      &copy;<?=$Config->system_name . ": "?>
+      <?php if (isset($Config->system_slogan)):?>
+      	<?=$Config->system_slogan?>
+      <?php endif; ?><br/>
       Made with <a href="https://github.com/levhita/ConfigCatalog/">ConfigCatalog</a>.<br/>
 	  <?php if( !isset($_SESSION['logged_in']) ){?>
 		<a href="login.php">Login</a>
@@ -52,7 +54,6 @@
 	  	<a href="logout.php">Logout</a> || <a href="admin.php">Admin</a>
 	  <?php } ?>
 	</div>
-    
     <div class="errors">
         <?foreach(Logger::getWebLog() AS $log):?>
         <pre><? print_r($log)?></pre>

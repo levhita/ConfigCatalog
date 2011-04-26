@@ -2,18 +2,22 @@
 	<h3><?=$Item->name?></h3>
 	<img alt="product_picture" src="items/web/<?=$Item->id?>.jpg"/>
 	<div class="description"><?=$Item->description?></div>
+	<?php if ( count($Item->options) ): ?>
 	<h4>Presentaciones:</h4>
 	<ul class="options">
 		<?php foreach($Item->options AS $option): ?>
 		<li><?="{$option['name']}: {$option['description']} ({$option['price']})"?></li>
 		<?php endforeach;?>
 	</ul>
-	<h4>Extras:</h4>
-	<ul class="extras">
-		<?php foreach($Item->extras AS $extra): ?>
-		<li><?="{$extra['name']}: {$extra['description']} ({$extra['price']})"?></li>
-		<?php endforeach;?>
-	</ul>
+	<?endif;?>
+	<?php if ( count($Item->extras) ): ?>
+    	<h4>Extras:</h4>
+    	<ul class="extras">
+    		<?php foreach($Item->extras AS $extra): ?>
+    		<li><?="{$extra['name']}: {$extra['description']} ({$extra['price']})"?></li>
+    		<?php endforeach;?>
+    	</ul>
+    <?endif;?>
 	<div class="clear">
 	  <?php if( isset($_SESSION['logged_in']) ):?>
 		<a href="edit.php?id=<?=$Item->id?>">Edit</a>
