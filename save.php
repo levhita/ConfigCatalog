@@ -24,9 +24,9 @@ if( file_put_contents($file_name, $content) === false ) {
   $message = "Couldn't save file";  
 }
 
-if ( parse_ini_file($file_name, true) === false ) {
+if ( parse_ini_string($content, true) === false ) {
   $error = error_get_last();
-  $message = "Wrong Syntax: {$error['message']}";
+  $message = $error['message'];
 }
 
 header("location:edit.php?id={$id}&message=" . urlencode($message));

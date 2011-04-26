@@ -51,7 +51,7 @@ class Logger {
    */
   public static function getWebLog() {
     $Config = Config::getInstance();
-    if ($Config->log_level == 'none' || $Config->log_level == 'text' ) {
+    if ($Config->log_level == 'hidden' || $Config->log_level == 'text' ) {
       return false;
     }
     return self::$logs;
