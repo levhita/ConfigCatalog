@@ -24,7 +24,7 @@ if( file_put_contents($file_name, $content) === false ) {
   $message = "Couldn't save file";  
 }
 
-if ( parse_ini_string($content, true) === false ) {
+if ( parse_ini_file($file_name, true) === false ) {
   $error = error_get_last();
   $message = $error['message'];
 }
