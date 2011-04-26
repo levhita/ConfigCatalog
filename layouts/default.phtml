@@ -54,10 +54,12 @@
 	  	<a href="logout.php">Logout</a> || <a href="admin.php">Admin</a>
 	  <?php } ?>
 	</div>
+    <?php if(count(Logger::getWebLog()) ): ?>    
     <div class="errors">
         <?foreach(Logger::getWebLog() AS $log):?>
         <pre><? print_r($log)?></pre>
         <? endforeach;?>
     </div>
+    <?php endif; ?>
   </body>
 </html>
