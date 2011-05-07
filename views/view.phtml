@@ -1,7 +1,8 @@
 <div class="item_detail">
 	<h3><?=$Item->name?></h3>
 	<img alt="product_picture" src="items/web/<?=$Item->id?>.jpg"/>
-	<div class="description"><?=nl2br($Item->long_description)?></div>
+	<div class="description"><?=$Item->description?></div>
+	<div class="long_description"><?=nl2br($Item->long_description)?></div>
 	<?php if ( count($Item->options) ): ?>
 	<h4>Presentaciones:</h4>
 	<ul class="options">
