@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title><?=$Config->system_name?></title>
+    <title><?=$Config->system_name?><?=($page_name!='')?" - $page_name":'';?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="themes/<?=$Config->system_theme?>/style.css" rel="stylesheet" type="text/css" />
     <?php include TO_ROOT . "/themes/$Config->system_theme/headers.phtml"?>
@@ -33,6 +33,7 @@
     	  $top_menu_name = $Config->top_menu_name;
     	  foreach($Config->top_menu_url AS $_top_menu_url){ 
     	    list($key,$_top_menu_name) = each($top_menu_name);
+    	    $_top_menu_url = ($_top_menu_url=='index.php')?$Config->system_home:$_top_menu_url;
     	    ?><li><a href="<?=$_top_menu_url?>"><?=$_top_menu_name?></a></li><?php
     	  }
     	?>	

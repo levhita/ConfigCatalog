@@ -9,6 +9,7 @@ if ( !isset($_GET['id']) || empty($_GET['id']) ) {
 $id = $_GET['id'];
 $Item = new ItemModel($id);
 
+$View->assign('page_name', $Item->name);
 $View->assign('Item', $Item);
 
 $View->display();
