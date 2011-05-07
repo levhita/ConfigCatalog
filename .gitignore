@@ -8,3 +8,4 @@ items/*.jpg
 items/thumbs/*.jpg
 items/web/*.jpg
 pages/*.phtml
+*~
