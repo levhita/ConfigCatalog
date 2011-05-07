@@ -138,6 +138,15 @@ body {
 	text-align:center;
 	background:#FFF;
 }
+.new {
+  position:relative;
+  top:0px;
+  left:0px;
+  background:url(new.png) no-repeat;
+  width:44px;
+  height:45px;
+  margin:-22px;
+}
 .item:hover {
 	background:#F5F5F5;
 }

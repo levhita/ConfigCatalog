@@ -2,7 +2,7 @@
 
 body {
 	background:#3C1900 url(bg.png);
-	font-family: 'Cousine', arial, serif;
+	font-family: arial, serif;
 	}
 .content {
 	background: #FFF;
@@ -44,6 +44,7 @@ body {
 	-moz-border-radius-bottomright: 10px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
+	font-family: 'Cousine', arial, serif;
 }
 
 .top_menu ul {
@@ -158,6 +159,15 @@ body {
 	text-align:center;
 	background:#FFF;
 	border-radius:10px;
+}
+.new {
+  position:relative;
+  top:0px;
+  left:0px;
+  background:url(new.png) no-repeat;
+  width:44px;
+  height:45px;
+  margin:-22px;
 }
 .item:hover {
 	padding:7px;

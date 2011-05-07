@@ -6,9 +6,12 @@
   </p>
 <?php endif;?>
 <?php foreach($Items AS $Item):?>
-<div class="item">
-	<h3><a href="v-<?=$Item->id?>"><?=$Item->name?></a></h3>
-	<a href="v-<?=$Item->id?>"><img alt="product_picture" src="items/thumbs/<?=$Item->id?>.jpg"/></a>
-	<div class="description"><?=$Item->description?></div>
-</div>
+  <?php if(!$Item->hide):?>
+  <div class="item">
+    <?=($Item->new)?'<div class="new"></div>':'';?>
+  	<h3><a href="v-<?=$Item->id?>"><?=$Item->name?></a></h3>
+  	<a href="v-<?=$Item->id?>"><img alt="product_picture" src="items/thumbs/<?=$Item->id?>.jpg"/></a>
+  	<div class="description"><?=$Item->description?></div>
+  </div>
+  <?php endif; ?>
 <?php endforeach; ?>

@@ -36,6 +36,9 @@
     	    $_top_menu_url = ($_top_menu_url=='index.php')?$Config->system_home:$_top_menu_url;
     	    ?><li><a href="<?=$_top_menu_url?>"><?=$_top_menu_name?></a></li><?php
     	  }
+    	  if( isset($_SESSION['logged_in']) ){
+		    echo "<li><a href=\"admin.php\">Admin</a></li>";
+    	  }
     	?>	
     	</ul>
     </div>

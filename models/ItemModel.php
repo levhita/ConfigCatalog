@@ -26,10 +26,14 @@ class ItemModel {
       throw new RuntimeException("Couldn't load config file: " . $this->_file_name);
     }
     
-    $this->id           = $id;
-    $this->name         = $this->_config['main']['name'];
-    $this->description  = $this->_config['main']['description'];
-       
+    $this->id               = $id;
+    $this->new              = $this->_config['main']['new'];
+    $this->hide             = $this->_config['main']['hide'];
+    $this->name             = $this->_config['main']['name'];
+    $this->description      = $this->_config['main']['description'];
+    $this->long_description = $this->_config['main']['long_description'];
+    
+           
     foreach($this->_config as $section => $values) {
       if ( strpos($section, ':')!==false ) {
         list($type, $name) = explode(':', $section);
@@ -54,8 +58,6 @@ class ItemModel {
         } catch(Exception $e){
           
         }
-        
-          
       }
     }
     return self::$__Items;   
